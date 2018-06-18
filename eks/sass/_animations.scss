@@ -1,0 +1,16 @@
+@keyframes swell {
+    0% {
+        font-size: 4em;
+    }
+    50% {
+        font-size: 4.1em;
+    }
+}
+@keyframes disolve_decoration {
+    0% {
+        border-bottom-color: rgba(255, 255, 255, 1.0);
+    }
+    100% {
+        border-bottom-color: rgba(255, 255, 255, 0);
+    }
+}

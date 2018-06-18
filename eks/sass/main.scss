@@ -1,0 +1,45 @@
+@import 'resets';
+@import 'animations';
+@import 'grid';
+@import 'typography';
+
+$white: #ffffff;
+$blue: #1c72b8;
+
+body {
+    color: $white;
+    background: linear-gradient(#1ea6be, #1c72b8) fixed;
+}
+a {
+    color: $white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+    &:hover {
+        animation: disolve_decoration 1s linear forwards;
+    }
+} 
+.center {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $white;
+    border: 2px solid $white;
+    border-radius: 5px;
+    color: $blue;
+}
+.btn:hover {
+    animation: none;
+    background-color: transparent;
+    color: $white;
+}
+
+.h1 {
+    &__title {
+        font-family: 'Bungee Shade', cursive;
+        animation: swell 5s infinite;
+        margin-top: 1em;
+    }
+}
