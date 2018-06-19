@@ -1,8 +1,16 @@
+<?php 
+use Template\Template; ?>
+
 <div class="row center">
     <div class="block">
         <h1 class="h1__title">James R. Nagle</h1>
     </div>
 </div>
+
+<?php Template::load('/partials/about_me.php') ?>
+
+<?php Template::load('/partials/skills_expertise.php') ?>
+
 <div class="row">
     <div class="block block__half--sm">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam natus reprehenderit dolores in perspiciatis eaque fuga molestias officiis voluptate quas!</p>

@@ -1,10 +1,12 @@
+$white: #ffffff;
+$blue: #1c72b8;
+
 @import 'resets';
 @import 'animations';
 @import 'grid';
 @import 'typography';
+@import 'components/components';
 
-$white: #ffffff;
-$blue: #1c72b8;
 
 body {
     color: $white;
@@ -42,4 +44,8 @@ a {
         animation: swell 5s infinite;
         margin-top: 1em;
     }
+}
+
+.mustache {
+    transform: rotate(83deg);
 }

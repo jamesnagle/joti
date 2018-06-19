@@ -1,0 +1,54 @@
+.overlay-box {
+    &__flipper {
+        position: relative;
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+    }
+    &:hover { 
+        .overlay-box__flipper {
+            transform: rotateY(180deg);
+        }
+    }
+    &__cover,
+    &__details {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        padding: 3em;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid $white;
+        border-radius: 3px;
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+    } 
+    &__cover {
+        z-index: 2;
+        transform: rotateY(0deg);
+        background-color: $white;
+        i {
+            color: $blue;
+            font-size: 10em;
+            font-size: 14vw;
+        }
+    }
+    &__details {
+        transform: rotateY(180deg);
+    }
+    h4,
+    p {
+        text-align: center;
+    }
+}
