@@ -1,0 +1,54 @@
+.emoji {
+    font-family: OpenSansEmoji;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+.em {
+    &-grinning-face:before {
+        content: '\1F600'
+    }
+    &-grinning-face-smiling-eyes:before {
+        content: '\1F601'
+    }
+    &-grinning-face-tears-of-joy:before {
+        content: '\1F602'
+    }
+    &-smiling-face-open-mouth:before {
+        content: '\1F603'
+    }
+    &-smiling-face-open-mouth-smiling-eyes:before {
+        content: '\1F604'
+    }
+    &-smiling-face-open-mouth-cold-sweat:before {
+        content: '\1F605'
+    }
+    &-smiling-face-open-mouth-tightly-closed-eyes:before {
+        content: '\1F606'
+    }
+    &-winking-face:before {
+        content: '\1F609'
+    }
+    &-smiling-face-smiling-eyes:before {
+        content: '\1F60A'
+    }
+    &-smiling-face-savory-food:before {
+        content: '\1F60B'
+    }
+    &-tounge-stuck-out:before {
+        content: '\1F61B'
+    }
+    &-tounge-stuck-out-winking-eye:before {
+        content: '\1F61B'
+    }
+    &-tounge-stuck-out-tighly-closed-eyes:before {
+        content: '\1F61D'
+    }
+    &-sunglasses:before {
+        content: '\1F60E'
+    }
+}

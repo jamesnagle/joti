@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="skills-expertise">
     <div class="block">
         <h2><i class="fas fa-code"></i>Skills &amp; Expertise</h2>
     </div>

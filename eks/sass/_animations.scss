@@ -1,9 +1,17 @@
 @keyframes swell {
     0% {
-        font-size: 4em;
+        font-size: 3.5em;
     }
     50% {
-        font-size: 4.1em;
+        font-size: 3.6em;
+    }
+}
+@keyframes increase-five-pixels {
+    0% {
+        font-size: 30px;
+    }
+    100% {
+        font-size: 35px;
     }
 }
 @keyframes disolve_decoration {
@@ -12,5 +20,23 @@
     }
     100% {
         border-bottom-color: rgba(255, 255, 255, 0);
+    }
+}
+
+@keyframes emoji-madness {
+    0% {
+        content: "\1F61B";
+    }
+    25% {
+        content: "\1F61C";
+    }
+    50% {
+        content: "\1F61D";
+    }
+    75% {
+        content: "\1F606";
+    }
+    100% {
+        content: "\1F60E";
     }
 }

@@ -10,15 +10,33 @@ body {
 
 @keyframes swell {
   0% {
-    font-size: 4em; }
+    font-size: 3.5em; }
   50% {
-    font-size: 4.1em; } }
+    font-size: 3.6em; } }
+
+@keyframes increase-five-pixels {
+  0% {
+    font-size: 30px; }
+  100% {
+    font-size: 35px; } }
 
 @keyframes disolve_decoration {
   0% {
     border-bottom-color: white; }
   100% {
     border-bottom-color: rgba(255, 255, 255, 0); } }
+
+@keyframes emoji-madness {
+  0% {
+    content: "\1F61B"; }
+  25% {
+    content: "\1F61C"; }
+  50% {
+    content: "\1F61D"; }
+  75% {
+    content: "\1F606"; }
+  100% {
+    content: "\1F60E"; } }
 
 .container {
   max-width: 1200px;
@@ -32,14 +50,16 @@ body {
   flex-flow: row wrap;
   margin-left: -15px;
   margin-right: -15px;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  /*Need to absorb .block bottom margin*/ }
 
 .block {
   display: block;
   padding-left: 15px;
   padding-right: 15px;
   flex: 0 0 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  margin-bottom: 30px; }
   .block__half {
     flex: 0 0 50%;
     max-width: 50%; }
@@ -49,6 +69,9 @@ body {
   .block__fourth {
     flex: 0 0 25%;
     max-width: 25%; }
+
+html body .flex {
+  display: flex; }
 
 @media screen and (min-width: 576px) {
   .block__half--xs {
@@ -94,6 +117,12 @@ body {
     flex: 0 0 25%;
     max-width: 25%; } }
 
+@font-face {
+  font-family: 'OpenSansEmoji';
+  src: url("/fonts/opensansemoji-webfont.woff2") format("woff2"), url("/fonts/opensansemoji-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 body {
   font-size: 16px;
   line-height: 20px;
@@ -136,6 +165,58 @@ ol {
   ul li,
   ol li {
     line-height: 1.5em; }
+
+.emoji {
+  font-family: OpenSansEmoji;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1; }
+
+.em-grinning-face:before {
+  content: '\1F600'; }
+
+.em-grinning-face-smiling-eyes:before {
+  content: '\1F601'; }
+
+.em-grinning-face-tears-of-joy:before {
+  content: '\1F602'; }
+
+.em-smiling-face-open-mouth:before {
+  content: '\1F603'; }
+
+.em-smiling-face-open-mouth-smiling-eyes:before {
+  content: '\1F604'; }
+
+.em-smiling-face-open-mouth-cold-sweat:before {
+  content: '\1F605'; }
+
+.em-smiling-face-open-mouth-tightly-closed-eyes:before {
+  content: '\1F606'; }
+
+.em-winking-face:before {
+  content: '\1F609'; }
+
+.em-smiling-face-smiling-eyes:before {
+  content: '\1F60A'; }
+
+.em-smiling-face-savory-food:before {
+  content: '\1F60B'; }
+
+.em-tounge-stuck-out:before {
+  content: '\1F61B'; }
+
+.em-tounge-stuck-out-winking-eye:before {
+  content: '\1F61B'; }
+
+.em-tounge-stuck-out-tighly-closed-eyes:before {
+  content: '\1F61D'; }
+
+.em-sunglasses:before {
+  content: '\1F60E'; }
 
 .overlay-box__flipper {
   position: relative;
@@ -211,11 +292,64 @@ a {
   color: #ffffff; }
 
 .h1__title {
+  position: relative;
   font-family: 'Bungee Shade', cursive;
-  animation: swell 5s infinite;
-  margin-top: 1em; }
+  margin-top: 0.25em;
+  line-height: 150px; }
+  .h1__title:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 275px;
+    height: 150px;
+    width: 150px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: #fff url("/img/headshot.jpg") center no-repeat;
+    font-size: 172px;
+    line-height: 172px;
+    text-indent: -11px; }
+  .h1__title:hover:before {
+    animation: emoji-madness 0.5s forwards; }
+
+#skills-expertise h2 {
+  animation: swell 5s infinite; }
 
 .mustache {
   transform: rotate(83deg); }
+
+.header {
+  justify-content: center;
+  align-items: center; }
+  .header a {
+    position: relative;
+    font-size: 30px;
+    margin-left: 15px;
+    border-bottom: 0px solid #fff; }
+    .header a:hover .marker {
+      display: block; }
+  .header .marker {
+    display: none;
+    position: absolute;
+    font-size: 12px;
+    bottom: -12px;
+    left: calc(50% - 6px); }
+  .header div:nth-child(1) {
+    margin-right: 15px; }
+
+#headshot {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  margin-top: 1em; }
+
+.mright,
+.mleft {
+  display: inline-block; }
+
+.mright {
+  margin-right: 90px; }
+
+.mleft {
+  margin-left: 90px; }
 
 /*# sourceMappingURL=main.css.map */
