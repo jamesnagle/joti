@@ -2,13 +2,12 @@
     &__title {
         position: relative;
         font-family: 'Bungee Shade', cursive;
-        margin-top: 0.25em;
-        line-height: 150px;
+        margin-top: 2.7em;
         &:before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 275px;
+            top: -160px;
+            left: calc(50% - 75px);
             height: 150px;
             width: 150px;
             border: 2px solid $white;
@@ -24,17 +23,8 @@
     }
 }
 
-#skills-expertise {
-    h2 {
-        animation: swell 5s infinite;
-    }
-}
-
-.mustache {
-    transform: rotate(83deg);
-}
-
 .header {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     a {
@@ -81,9 +71,51 @@
     display: inline-block;
 }
 
-.mright {
-    margin-right: 90px;
+@media screen and (min-width: 768px) {
+    .h1 {
+        &__title {
+            margin-top: 0.25em;
+            line-height: 1em;
+            width: 280px;
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .header {
+        flex-direction: row;
+    }
 }
-.mleft {
-    margin-left: 90px;
+@media screen and (min-width: 992px) {
+    .h1 {
+        &__title {
+            margin-top: 0.25em;
+            line-height: 150px;
+            font-size: 3.3em;
+            width: auto;
+            &:before {
+                display: block;
+                top: 0;
+            }
+        }
+    }
+
+    .header {
+        flex-direction: row;
+    }
+
+    .mright {
+        margin-right: 90px;
+    }
+    .mleft {
+        margin-left: 90px;
+    }    
+}
+@media screen and (min-width: 1088px) {
+    .h1 {
+        &__title {
+            font-size: 4em;
+        }
+    }
 }

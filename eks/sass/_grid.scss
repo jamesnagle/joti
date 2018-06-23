@@ -10,7 +10,6 @@
     flex-flow: row wrap;
     margin-left: -15px;
     margin-right: -15px;
-    margin-bottom: 30px;
     /*Need to absorb .block bottom margin*/
 }
 .block {
@@ -40,6 +39,10 @@ html {
         }
     }
 }
+.hidden-xs,
+.hidden-sm {
+    display: none;
+}
 @media screen and (min-width: 576px) {
     .block {
         &__half {
@@ -60,6 +63,12 @@ html {
                 max-width: 25%;
             }
         }
+    }
+    .hidden-xs {
+        display: inline-block;
+    }
+    .visible-xs {
+        display: none;
     }
 }
 @media screen and (min-width: 768px) {
@@ -82,6 +91,12 @@ html {
                 max-width: 25%;
             }
         }
+    }
+    .hidden-sm {
+        display: inline-block;
+    }
+    .visible-sm {
+        display: none;
     }
 }
 @media screen and (min-width: 992px) {

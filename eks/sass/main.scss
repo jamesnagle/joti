@@ -41,3 +41,13 @@ a {
     color: $white;
 }
 
+#skills-expertise {
+    h2 {
+        animation: swell 5s infinite;
+    }
+}
+
+.mustache {
+    transform: rotate(83deg);
+}
+

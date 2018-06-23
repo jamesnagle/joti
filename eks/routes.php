@@ -7,3 +7,8 @@ $app->get('/', function (Request $request, Response $response, array $args)
     $response = $this->view->render($response, 'home.php'/*, ['tickets' => $tickets]*/);
     return $response;
 });
+
+$app->get('/about/', function (Request $request, Response $response, array $args) {
+    $response = $this->view->render($response, 'about.php'/*, ['tickets' => $tickets]*/ );
+    return $response;
+});

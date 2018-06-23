@@ -4,7 +4,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="block block__half--sm block__third--md overlay-box">
+    <div class="block block__half--xs block__third--sm overlay-box">
         <div class="overlay-box__flipper">
             <div class="overlay-box__cover">
                 <i class="fab fa-html5"></i>
@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="block block__half--sm block__third--md overlay-box">
+    <div class="block block__half--xs block__third--sm overlay-box">
         <div class="overlay-box__flipper">
             <div class="overlay-box__cover">
                 <i class="fab fa-css3-alt"></i>
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="block block__half--sm block__third--md overlay-box">
+    <div class="block block__half--xs block__third--sm overlay-box">
         <div class="overlay-box__flipper">
             <div class="overlay-box__cover">
                 <i class="fab fa-js"></i>
@@ -43,10 +43,7 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="block block__half--sm block__third--md overlay-box">
+    <div class="block block__half--xs block__third--sm overlay-box">
         <div class="overlay-box__flipper">
             <div class="overlay-box__cover">
                 <i class="fab fa-react"></i>
@@ -59,7 +56,7 @@
             </div>
         </div>
     </div>
-    <div class="block block__half--sm block__third--md overlay-box">
+    <div class="block block__half--xs block__third--sm overlay-box">
         <div class="overlay-box__flipper">
             <div class="overlay-box__cover">
                 <i class="fab fa-sass"></i>
@@ -72,7 +69,7 @@
             </div>
         </div>
     </div>
-    <div class="block block__half--sm block__third--md overlay-box">
+    <div class="block block__half--xs block__third--sm overlay-box">
         <div class="overlay-box__flipper">
             <div class="overlay-box__cover">
                 <i class="mustache">{{</i>
