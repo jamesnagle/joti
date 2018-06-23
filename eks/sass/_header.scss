@@ -39,21 +39,32 @@
     align-items: center;
     a {
         position: relative;
-        font-size: 30px;
+        font-size: 36px;
         margin-left: 15px;
         border-bottom: 0px solid #fff;
         &:hover {
-            .marker {
+            &:before,
+            &:after {
                 display: block;
             }
         }
-    }
-    .marker {
-        display: none;
-        position: absolute;
-        font-size: 12px;
-        bottom: -12px;
-        left: calc(50% - 6px);
+        &:before,
+        &:after {
+            display: none;
+            position: absolute;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 600;
+            font-size: 12px;
+            left: calc(50% - 6px);
+        } 
+        &:before {
+            content: '\f078';
+            top: -12px;
+        }
+        &:after {
+            content: '\f077';
+            bottom: -12px;
+        }
     }
     div:nth-child(1) {
         margin-right:15px;

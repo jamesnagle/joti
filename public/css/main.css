@@ -296,17 +296,24 @@ ol {
   align-items: center; }
   .header a {
     position: relative;
-    font-size: 30px;
+    font-size: 36px;
     margin-left: 15px;
     border-bottom: 0px solid #fff; }
-    .header a:hover .marker {
+    .header a:hover:before, .header a:hover:after {
       display: block; }
-  .header .marker {
-    display: none;
-    position: absolute;
-    font-size: 12px;
-    bottom: -12px;
-    left: calc(50% - 6px); }
+    .header a:before, .header a:after {
+      display: none;
+      position: absolute;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      font-size: 12px;
+      left: calc(50% - 6px); }
+    .header a:before {
+      content: '\f078';
+      top: -12px; }
+    .header a:after {
+      content: '\f077';
+      bottom: -12px; }
   .header div:nth-child(1) {
     margin-right: 15px; }
 
