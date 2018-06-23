@@ -264,33 +264,6 @@ ol {
 .overlay-box p {
   text-align: center; }
 
-body {
-  color: #ffffff;
-  background: linear-gradient(#1ea6be, #1c72b8) fixed; }
-
-a {
-  color: #ffffff;
-  text-decoration: none;
-  border-bottom: 1px solid white; }
-  a:hover {
-    animation: disolve_decoration 1s linear forwards; }
-
-.center {
-  text-align: center; }
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-  color: #1c72b8; }
-
-.btn:hover {
-  animation: none;
-  background-color: transparent;
-  color: #ffffff; }
-
 .h1__title {
   position: relative;
   font-family: 'Bungee Shade', cursive;
@@ -351,5 +324,32 @@ a {
 
 .mleft {
   margin-left: 90px; }
+
+body {
+  color: #ffffff;
+  background: linear-gradient(#1ea6be, #1c72b8) fixed; }
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid white; }
+  a:hover {
+    animation: disolve_decoration 1s linear forwards; }
+
+.center {
+  text-align: center; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  color: #1c72b8; }
+
+.btn:hover {
+  animation: none;
+  background-color: transparent;
+  color: #ffffff; }
 
 /*# sourceMappingURL=main.css.map */

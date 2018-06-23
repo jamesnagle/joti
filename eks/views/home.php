@@ -1,5 +1,7 @@
 <?php 
-use Template\Template; ?>
+use Template\Template;
+
+Template::load('header.php'); ?>
 
 <div class="row center">
     <div class="block flex header">
@@ -17,9 +19,9 @@ use Template\Template; ?>
     </div>
 </div>
 
-<?php Template::load('/partials/about_me.php') ?>
+<?php Template::load('partials/about_me.php') ?>
 
-<?php Template::load('/partials/skills_expertise.php') ?>
+<?php Template::load('partials/skills_expertise.php') ?>
 
 <div class="row">
     <div class="block block__half--sm">
@@ -48,3 +50,5 @@ use Template\Template; ?>
         <p><strong>Lorem ipsum dolor</strong> sit amet consectetur adipisicing elit. Qui, porro. Cum laboriosam quidem dignissimos quod!</p>
     </div>
 </div>
+
+<?php Template::load('footer.php'); ?>

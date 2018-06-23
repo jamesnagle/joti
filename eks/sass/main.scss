@@ -8,6 +8,7 @@ $block_bottom_padding: 30px;
 @import 'typography';
 @import 'emoticons';
 @import 'components/components';
+@import 'header';
 
 
 body {
@@ -40,81 +41,3 @@ a {
     color: $white;
 }
 
-.h1 {
-    &__title {
-        position: relative;
-        font-family: 'Bungee Shade', cursive;
-        margin-top: 0.25em;
-        line-height: 150px;
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 275px;
-            height: 150px;
-            width: 150px;
-            border: 2px solid $white;
-            border-radius: 50%;
-            background: #fff url('/img/headshot.jpg') center no-repeat;
-            font-size: 172px;
-            line-height: 172px;
-            text-indent: -11px;
-        }
-        &:hover:before {
-            animation: emoji-madness 0.5s forwards;
-        }
-    }
-}
-
-#skills-expertise {
-    h2 {
-        animation: swell 5s infinite;
-    }
-}
-
-.mustache {
-    transform: rotate(83deg);
-}
-
-.header {
-    justify-content: center;
-    align-items: center;
-    a {
-        position: relative;
-        font-size: 30px;
-        margin-left: 15px;
-        border-bottom: 0px solid #fff;
-        &:hover {
-            .marker {
-                display: block;
-            }
-        }
-    }
-    .marker {
-        display: none;
-        position: absolute;
-        font-size: 12px;
-        bottom: -12px;
-        left: calc(50% - 6px);
-    }
-    div:nth-child(1) {
-        margin-right:15px;
-    }
-}
-
-#headshot {
-    border: 2px solid $white;
-    border-radius: 50%;
-    margin-top: 1em;
-}
-.mright,
-.mleft {
-    display: inline-block;
-}
-
-.mright {
-    margin-right: 90px;
-}
-.mleft {
-    margin-left: 90px;
-}
