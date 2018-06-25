@@ -1,6 +1,9 @@
 {
+    "name": "James of the Internet",
+    "description": "Personal website of James R. Nagle",
     "require": {
         "slim/slim": "^3.0",
-        "slim/php-view": "^2.2"
+        "slim/php-view": "^2.2",
+        "illuminate/database": "~5.1"
     }
 }

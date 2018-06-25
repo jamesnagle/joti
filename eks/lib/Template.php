@@ -1,5 +1,5 @@
 <?php 
-namespace Template;
+namespace Eks;
 
 class Template {
     public static function load(string $filename)
