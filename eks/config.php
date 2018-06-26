@@ -2,7 +2,7 @@
 /**
  * Always .Gitignore
  **/ 
-$creds = import(EKS_DIRECTORY . 'creds.php');
+$creds = include(EKS_DIRECTORY . 'creds.php');
 
 return [
     'database' => [
