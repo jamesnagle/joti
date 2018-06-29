@@ -21,9 +21,9 @@ class DatabaseConfig
     protected function testConnection() {
         $mysqli = new \mysqli(
             $this->credentials['host'], 
-            $this->credentials['user'], 
-            $this->credentials['pass'], 
-            $this->credentials['db']
+            $this->credentials['username'], 
+            $this->credentials['password'], 
+            $this->credentials['database']
         );
 
         if ($mysqli->connect_errno) {

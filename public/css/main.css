@@ -315,10 +315,10 @@ ol {
       left: calc(50% - 6px); }
     .header a:before {
       content: '\f078';
-      top: -12px; }
+      top: -17px; }
     .header a:after {
       content: '\f077';
-      bottom: -12px; }
+      bottom: -17px; }
   .header div:nth-child(1) {
     margin-right: 15px; }
 

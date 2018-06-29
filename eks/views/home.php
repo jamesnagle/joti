@@ -1,7 +1,7 @@
 <?php 
 use Eks\Template;
 
-Template::load('head.php');
+Template::load('head.php', $data);
 
 Template::load('partials/about_me.php');
 
@@ -9,7 +9,7 @@ Template::load('partials/skills_expertise.php'); ?>
 
 <div class="row">
     <div class="block block__half--sm">
-        <p><?= $settings ?></p>
+        <p><?php var_dump($doc) ?></p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam natus reprehenderit dolores in perspiciatis eaque fuga molestias officiis voluptate quas!</p>
         <a href="#" class="btn">Buttom Normal</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam <a href="#" class="btn">Button Inline</a> quod iure officiis, nisi odit?</p>

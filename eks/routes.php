@@ -1,15 +1,14 @@
 <?php 
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Eks\Models\Document;
 
 $app->get('/', function (Request $request, Response $response, array $args) 
 {
-    $settings = 'none';
-    if ($this->has('settings')) {
-        $settings = $this->settings['env'];
-    }
+    $this->get('db');
+    $doc = (object) Document::where('slug', '/')->with('seoMeta')->first()->toArray();
     $response = $this->view->render($response, 'home.php', [
-        'settings' => $settings
+        'doc' => $doc
     ]);
     return $response;
 });
