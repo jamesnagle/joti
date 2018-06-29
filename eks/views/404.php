@@ -1,11 +1,11 @@
 <?php 
 use Eks\Template;
 
-Template::load('head.php'); ?>
+Template::load('head.php', $data); ?>
 
 <div class="row">
     <div class="block">
-        <p>The about page</p>
+        <h1>404 - Oh No!</h1>
     </div>
 </div>
 
