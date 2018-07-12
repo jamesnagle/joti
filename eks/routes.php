@@ -8,22 +8,23 @@ $app->get('/', function (Request $request, Response $response, array $args)
     $this->get('db');
     $doc = Document::where('slug', '/')->with('seoMeta')->first();
 
-    if (!$doc) {
-        $response = $this->view->render($response, '404.php', [
-            'doc' => (object) [
-                'seo_meta' => [
-                    'title' => '404',
-                    'description' => 'Not found'
-                ]
-            ]
-        ]);
-        return $response->withStatus(404);
-    } 
+    handle_response($this, $doc, $response, 'home.php');
+});
 
-    $response = $this->view->render($response, 'home.php', [
-        'doc' => (object) $doc->toArray()
-    ]);
-    return $response;
+$app->get('/blog/', function (Request $request, Response $response, array $args) {
+    $this->get('db');
+    $doc = Document::where('slug', '/blog/')->with('seoMeta')->first();
+    $posts = Document::where([
+        ['type', '=', 'post'],
+        ['status', '=', 'public']
+    ])->get();
+
+    $data = [
+        'doc' => $doc, 
+        'collection' => $posts
+    ];
+
+    handle_collection_response($this, $data, $response, 'blog.php');
 });
 
 $app->get('/{slug}/', function (Request $request, Response $response, array $args) 
@@ -31,20 +32,5 @@ $app->get('/{slug}/', function (Request $request, Response $response, array $arg
     $this->get('db');
     $doc = Document::where('slug', '/' . $args['slug'] . '/')->with('seoMeta')->first();
 
-    if (!$doc) {
-        $response = $this->view->render($response, '404.php', [
-            'doc' => (object) [
-                'seo_meta' => [
-                    'title' => '404',
-                    'description' => 'Not found'
-                ]
-            ]
-        ]);
-        return $response->withStatus(404);
-    } 
-
-    $response = $this->view->render($response, 'page.php', [
-        'doc' => (object) $doc->toArray()
-    ]);
-    return $response;
+    handle_response($this, $doc, $response, 'page.php');
 });

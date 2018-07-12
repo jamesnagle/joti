@@ -8,7 +8,9 @@ class Document extends Model {
     protected $fillable = [
         'title',
         'body',
-        'slug'
+        'slug',
+        'type',
+        'status'
     ];
     public function seoMeta() {
         return $this->hasOne('Eks\Models\SeoMeta');
