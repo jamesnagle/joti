@@ -5,7 +5,7 @@ function handle_response($app, $doc, $response, $template) {
     }
 
     $response = $app->view->render($response, $template, [
-        'doc' => (object) $doc->toArray()
+        'doc' => $doc
     ]);
     return $response;
 }

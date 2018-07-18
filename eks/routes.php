@@ -16,6 +16,7 @@ $app->get('/blog/', function (Request $request, Response $response, array $args)
     $doc = Document::where('slug', '/blog/')->with('seoMeta')->first();
     $posts = Document::where([
         ['type', '=', 'post'],
+        ['category_id', '!=', 5],
         ['status', '=', 'public']
     ])->get();
 
@@ -25,6 +26,68 @@ $app->get('/blog/', function (Request $request, Response $response, array $args)
     ];
 
     handle_collection_response($this, $data, $response, 'blog.php');
+});
+
+$app->get('/skills/', function (Request $request, Response $response, array $args) {
+    $this->get('db');
+    $doc = Document::where('slug', '/skills/')->with('seoMeta')->first();
+    $skills = Document::where([
+        ['type', '=', 'post'],
+        ['category_id', '=', 4],
+        ['status', '=', 'public']
+    ])->get();
+
+    $data = [
+        'doc' => $doc,
+        'collection' => $skills
+    ];
+
+    handle_collection_response($this, $data, $response, 'skills.php');
+});
+$app->get('/skills/{slug}/', function (Request $request, Response $response, array $args) {
+    $this->get('db');
+
+    $doc = Document::where([
+        ['slug', '=', '/' . $args['slug'] . '/'],
+        ['category_id', '=', 4]
+    ])->with('seoMeta')->first();
+
+    $data = [
+        'doc' => $doc,
+        'collection' => $doc->lessons
+    ];
+
+    handle_collection_response($this, $data, $response, 'skill.php');
+});
+$app->get('/skills/{slug}/{lesson}/', function (Request $request, Response $response, array $args) {
+    $this->get('db');
+    $parent_doc = Document::where([
+        ['slug', '=', '/' . $args['slug'] . '/'],
+        ['category_id', '=', 4]
+    ])->first();
+
+    $doc = Document::where([
+        ['slug', '=', '/' . $args['lesson'] . '/'],
+        ['type', '=', 'post'],
+        ['category_id', '=', 5],
+        ['status', '=', 'public']
+    ])
+    ->whereHas('skill', function($query) use ($parent_doc) {
+        $query->where('skill_id', '=', $parent_doc->id);
+    })->with('seoMeta')->first();
+
+    handle_response($this, $doc, $response, 'lesson.php');
+});
+
+$app->get('/blog/{slug}/', function (Request $request, Response $response, array $args) {
+    $this->get('db');
+    $doc = Document::where([
+        ['slug', '=', '/' . $args['slug'] . '/'],
+        ['type', '=', 'post'],
+        ['status', '=', 'public']
+    ])->with('seoMeta')->first();
+
+    handle_response($this, $doc, $response, 'post.php');
 });
 
 $app->get('/{slug}/', function (Request $request, Response $response, array $args) 

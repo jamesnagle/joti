@@ -3,9 +3,9 @@ use Eks\Template;
 
 Template::load('head.php', $data);
 
-Template::load('partials/about_me.php');
+Template::load('partials/about-me.php');
 
-Template::load('partials/skills_expertise.php'); ?>
+Template::load('partials/skills-expertise.php'); ?>
 
 <div class="row">
     <div class="block block__half--sm">

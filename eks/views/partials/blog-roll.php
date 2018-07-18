@@ -12,9 +12,10 @@ $parsedown = new Parsedown(); ?>
         if (!empty($collection)) {
             foreach($collection as $post) { ?>
                 <article>
-                    <h2><?= $post['title'] ?></h2>
-                    <?= $parsedown->text($post['body']) ?>
-                    <a href="<?= $post['slug'] ?>" title="<?= $post['title'] ?>">Read More</a>
+                    <h2><?= $post->title ?></h2>
+                    <p><?= $post->category->name ?></p>
+                    <?= $parsedown->text($post->body) ?>
+                    <a href="<?= $post->slug ?>" title="<?= $post->title ?>">Read More</a>
                 </article> <?php
             }
         } else { ?>

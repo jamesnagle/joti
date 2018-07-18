@@ -8,8 +8,8 @@ function handle_collection_response($app, $data, $response, $template)
     }
 
     $response = $app->view->render($response, $template, [
-        'doc'           => (object)$doc->toArray(),
-        'collection'    => $collection->toArray()
+        'doc'           => $doc,
+        'collection'    => $collection
     ]);
     return $response;
 }
