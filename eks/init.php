@@ -9,7 +9,6 @@ $config = include(EKS_DIRECTORY . 'config.php');
 $mysql_db = new DatabaseConfig($config['database']);
 
 $app_config = [
-    'view' => new PhpRenderer(EKS_DIRECTORY . 'views/'),
     'settings' => [
         'displayErrorDetails' => true,
         'db' => $mysql_db->load(),
@@ -27,6 +26,13 @@ $container['db'] = function ($container) {
     $capsule->bootEloquent();
 
     return $capsule;
+};
+
+$container['view'] = function ($container) {
+    $templateVariables = [
+        'request' => $container->get('request')
+    ];
+    return new \Slim\Views\PhpRenderer(EKS_DIRECTORY . 'views/', $templateVariables);
 };
 
 return $container;

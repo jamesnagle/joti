@@ -12,10 +12,6 @@ use Eks\Template; ?>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body <?php body_class($request) ?>>
-    <div class="container"> <?php 
-        if ($request->getUri()->getPath() !== '/login/') {
-            Template::load('partials/header.php');
-        } ?>

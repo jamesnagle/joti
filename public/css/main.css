@@ -68,6 +68,9 @@ body {
   .block__fourth {
     flex: 0 0 25%;
     max-width: 25%; }
+  .block__three-fourth {
+    flex: 0 0 75%;
+    max-width: 75%; }
 
 html body .flex {
   display: flex; }
@@ -86,6 +89,9 @@ html body .flex {
   .block__fourth--xs {
     flex: 0 0 25%;
     max-width: 25%; }
+  .block__three-fourth {
+    flex: 0 0 75%;
+    max-width: 75%; }
   .hidden-xs {
     display: inline-block; }
   .visible-xs {
@@ -101,6 +107,9 @@ html body .flex {
   .block__fourth--sm {
     flex: 0 0 25%;
     max-width: 25%; }
+  .block__three-fourth {
+    flex: 0 0 75%;
+    max-width: 75%; }
   .hidden-sm {
     display: inline-block; }
   .visible-sm {
@@ -115,7 +124,10 @@ html body .flex {
     max-width: 33.3333%; }
   .block__fourth--md {
     flex: 0 0 25%;
-    max-width: 25%; } }
+    max-width: 25%; }
+  .block__three-fourth {
+    flex: 0 0 75%;
+    max-width: 75%; } }
 
 @media screen and (min-width: 1200px) {
   .block__half--lg {
@@ -126,7 +138,10 @@ html body .flex {
     max-width: 33.3333%; }
   .block__fourth--lg {
     flex: 0 0 25%;
-    max-width: 25%; } }
+    max-width: 25%; }
+  .block__three-fourth {
+    flex: 0 0 75%;
+    max-width: 75%; } }
 
 @font-face {
   font-family: 'OpenSansEmoji';
@@ -279,7 +294,7 @@ ol {
   position: relative;
   font-family: 'Bungee Shade', cursive;
   margin-top: 2.7em; }
-  .h1__title:before {
+  .h1__title--homepage:before {
     content: '';
     position: absolute;
     top: -160px;
@@ -292,7 +307,7 @@ ol {
     font-size: 172px;
     line-height: 172px;
     text-indent: -11px; }
-  .h1__title:hover:before {
+  .h1__title--homepage:hover:before {
     animation: emoji-madness 0.5s forwards; }
 
 .header {
@@ -332,22 +347,22 @@ ol {
   display: inline-block; }
 
 @media screen and (min-width: 768px) {
-  .h1__title {
+  .h1__title--homepage {
     margin-top: 0.25em;
     line-height: 1em;
     width: 280px; }
-    .h1__title:before {
+    .h1__title--homepage:before {
       display: none; }
   .header {
     flex-direction: row; } }
 
 @media screen and (min-width: 992px) {
-  .h1__title {
+  .h1__title--homepage {
     margin-top: 0.25em;
     line-height: 150px;
     font-size: 3.3em;
     width: auto; }
-    .h1__title:before {
+    .h1__title--homepage:before {
       display: block;
       top: 0; }
   .header {
@@ -358,8 +373,40 @@ ol {
     margin-left: 90px; } }
 
 @media screen and (min-width: 1088px) {
-  .h1__title {
+  .h1__title--homepage {
     font-size: 4em; } }
+
+label,
+input {
+  display: block;
+  margin-bottom: 0.5em; }
+
+input {
+  width: 100%;
+  margin-bottom: 1em;
+  border: none; }
+
+input[type="text"],
+input[type="password"] {
+  height: 40px;
+  font-size: 1em;
+  padding-left: 0.5em; }
+
+input[type="submit"] {
+  background: #6bd06b;
+  font-size: 1em;
+  padding: 1em;
+  margin: 2em 0 0 0;
+  color: #ffffff; }
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 2em;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto; }
 
 body {
   color: #ffffff;

@@ -31,6 +31,10 @@
         flex: 0 0 25%;
         max-width: 25%;
     }
+    &__three-fourth {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }    
 }
 html {
     body {
@@ -63,6 +67,10 @@ html {
                 max-width: 25%;
             }
         }
+        &__three-fourth {
+            flex: 0 0 75%;
+            max-width: 75%;
+        }  
     }
     .hidden-xs {
         display: inline-block;
@@ -91,6 +99,10 @@ html {
                 max-width: 25%;
             }
         }
+        &__three-fourth {
+            flex: 0 0 75%;
+            max-width: 75%;
+        }          
     }
     .hidden-sm {
         display: inline-block;
@@ -119,6 +131,10 @@ html {
                 max-width: 25%;
             }
         }
+        &__three-fourth {
+            flex: 0 0 75%;
+            max-width: 75%;
+        }          
     }
 }
 @media screen and (min-width: 1200px) {
@@ -141,5 +157,9 @@ html {
                 max-width: 25%;
             }
         }
+        &__three-fourth {
+            flex: 0 0 75%;
+            max-width: 75%;
+        }          
     }
 }

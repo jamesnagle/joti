@@ -2,6 +2,8 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Eks\Models\Document;
+use Eks\EksAuth;
+use Eks\Controllers\LoginController;
 
 $app->get('/', function (Request $request, Response $response, array $args) 
 {
@@ -9,7 +11,7 @@ $app->get('/', function (Request $request, Response $response, array $args)
     $doc = Document::where('slug', '/')->with('seoMeta')->first();
 
     handle_response($this, $doc, $response, 'home.php');
-});
+})->setName('home');
 
 $app->get('/blog/', function (Request $request, Response $response, array $args) {
     $this->get('db');
@@ -89,6 +91,58 @@ $app->get('/blog/{slug}/', function (Request $request, Response $response, array
 
     handle_response($this, $doc, $response, 'post.php');
 });
+
+$app->get('/login/', function (Request $request, Response $response, array $args) {
+
+    $this->get('db');
+    $doc = Document::where('slug', '/login/')->with('seoMeta')->first();
+
+    handle_response($this, $doc, $response, 'login.php');
+})->setName('login');
+
+$app->post('/login/', function (Request $request, Response $response, array $args) {
+    
+    $this->get('db');
+    $router = $this->get('router');
+
+    $post_array = $request->getParsedBody();
+
+    switch ($post_array['form']) {
+        case 'login':
+            return LoginController::post($request, $response, $router);
+            break;
+        
+        default:
+            return $response->withRedirect($router->pathFor('login'), 302);
+            break;
+    }
+});
+
+$app->get('/admin/', function (Request $request, Response $response, array $args) {
+    session_start();
+
+    $router = $this->get('router');
+
+    if (!EksAuth::isLoggedIn()) {
+        return $response->withRedirect($router->pathFor('login'), 302);
+    }
+    $this->get('db');
+    $doc = Document::where('slug', '/admin/')->with('seoMeta')->first();
+
+    handle_response($this, $doc, $response, 'admin/index.php');
+})->setName('admin');
+
+$app->get('/logout/', function (Request $request, Response $response, array $args) {
+
+    $router = $this->get('router');
+
+    session_start();
+
+    EksAuth::logout();
+
+    return $response->withRedirect($router->pathFor('home'));
+
+})->setName('logout');
 
 $app->get('/{slug}/', function (Request $request, Response $response, array $args) 
 {

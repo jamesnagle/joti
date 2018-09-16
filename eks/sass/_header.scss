@@ -3,22 +3,24 @@
         position: relative;
         font-family: 'Bungee Shade', cursive;
         margin-top: 2.7em;
-        &:before {
-            content: '';
-            position: absolute;
-            top: -160px;
-            left: calc(50% - 75px);
-            height: 150px;
-            width: 150px;
-            border: 2px solid $white;
-            border-radius: 50%;
-            background: #fff url('/img/headshot.jpg') center no-repeat;
-            font-size: 172px;
-            line-height: 172px;
-            text-indent: -11px;
-        }
-        &:hover:before {
-            animation: emoji-madness 0.5s forwards;
+        &--homepage {
+            &:before {
+                content: '';
+                position: absolute;
+                top: -160px;
+                left: calc(50% - 75px);
+                height: 150px;
+                width: 150px;
+                border: 2px solid $white;
+                border-radius: 50%;
+                background: #fff url('/img/headshot.jpg') center no-repeat;
+                font-size: 172px;
+                line-height: 172px;
+                text-indent: -11px;
+            }
+            &:hover:before {
+                animation: emoji-madness 0.5s forwards;
+            }
         }
     }
 }
@@ -74,11 +76,13 @@
 @media screen and (min-width: 768px) {
     .h1 {
         &__title {
-            margin-top: 0.25em;
-            line-height: 1em;
-            width: 280px;
-            &:before {
-                display: none;
+            &--homepage {
+                margin-top: 0.25em;
+                line-height: 1em;
+                width: 280px;
+                &:before {
+                    display: none;
+                }
             }
         }
     }
@@ -90,13 +94,15 @@
 @media screen and (min-width: 992px) {
     .h1 {
         &__title {
-            margin-top: 0.25em;
-            line-height: 150px;
-            font-size: 3.3em;
-            width: auto;
-            &:before {
-                display: block;
-                top: 0;
+            &--homepage {
+                margin-top: 0.25em;
+                line-height: 150px;
+                font-size: 3.3em;
+                width: auto;
+                &:before {
+                    display: block;
+                    top: 0;
+                }
             }
         }
     }
@@ -115,7 +121,9 @@
 @media screen and (min-width: 1088px) {
     .h1 {
         &__title {
-            font-size: 4em;
+            &--homepage {
+                font-size: 4em;
+            }
         }
     }
 }
