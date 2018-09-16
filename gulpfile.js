@@ -26,7 +26,8 @@ gulp.task('admin_sass', function () {
 
 gulp.task('sass:watch', function () {
     browserSync.init({
-        proxy: 'http://jamesoftheinternet.dev.com'
+        proxy: 'http://jamesoftheinternet.dev.com',
+        open: false
     });
     gulp.watch('./eks/sass/**/*.scss', ['sass', 'admin_sass']);
     gulp.watch([
