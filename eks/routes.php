@@ -94,6 +94,14 @@ $app->get('/blog/{slug}/', function (Request $request, Response $response, array
 
 $app->get('/login/', function (Request $request, Response $response, array $args) {
 
+    session_start();
+
+    $router = $this->get('router');
+
+    if (EksAuth::isLoggedIn()) {
+        return $response->withRedirect($router->pathFor('admin'));
+    }
+
     $this->get('db');
     $doc = Document::where('slug', '/login/')->with('seoMeta')->first();
 

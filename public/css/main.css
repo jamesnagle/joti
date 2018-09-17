@@ -392,7 +392,8 @@ input[type="password"] {
   font-size: 1em;
   padding-left: 0.5em; }
 
-input[type="submit"] {
+input[type="submit"],
+.admin-btn {
   background: #6bd06b;
   font-size: 1em;
   padding: 1em;

@@ -3,8 +3,50 @@ $blue: #1c72b8;
 $light_blue: #1ea6be;
 $block_bottom_padding: 30px;
 $button_green: #6bd06b;
+$button_hover_green: #65b965;
+$black: #333333;
+$gray: #eeeeee;
+$light_gray: #f7f7f7;
 
 @import 'resets';
+@import 'admin/resets';
 @import 'grid';
-@import 'font-face';
+@import 'admin/grid';
+@import 'admin/typography';
+@import 'admin/menus';
+@import 'admin/forms';
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    thead {
+        th {
+            &:nth-child(1) {
+                width: 47px;
+            }            
+            &:nth-child(5) {
+                width: 120px;
+            }
+        }
+    }
+    tbody {
+        tr:nth-child(odd) {
+            background-color: $gray;
+        }
+        tr.lesson-row {
+            display: none;
+            background-color: $light_gray;
+        }
+        td {
+            margin: 0;
+            padding: 1em;
+            &:nth-child(5) {
+                text-align: center;
+            }
+        }
+    }
+    .expander {
+        cursor: pointer;
+    }
+}
 

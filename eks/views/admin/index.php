@@ -1,63 +1,35 @@
 <?php 
 use Eks\Template;
+use Eks\Models\Document;
+use Eks\Controllers\AdminController;
 
 $parsedown = new Parsedown();
 
-$admin_page = (array_key_exists('type', $_GET)) ? $_GET['type'] : 'dashboard';
+$type = (array_key_exists('type', $_GET)) ? $_GET['type'] : 'dashboard';
+$action = (array_key_exists('action', $_GET)) ? $_GET['action'] : 'show';
+$id = (array_key_exists('id', $_GET)) ? $_GET['id'] : null;
 
-Template::load('admin/head.php', $data); ?>
+$controller = new AdminController();
 
-<div class="row">
-    <div class="block__fourth">
-        <div id="logo">
-            <a href="/" title="Back to Homepage"><i class="fas fa-home"></i></a>
-        </div>
-        <nav class="side-nav">
-            <ul>
-                <li>
-                    <a href="/admin/?type=page">Pages</a>
-                </li>
-                <li>
-                    <a href="/admin/?type=post">Posts</a>
-                </li>
-                <li>
-                    <a href="/admin/?type=skill">Skill</a>
-                </li>
-                <li>
-                    <a href="/admin/?type=media">Media</a>
-                </li>
-                <li>
-                    <a href="/admin/?type=user">Users</a>
-                </li>
-                <li class="separator">&nbsp;</li>
-                <li>
-                    <a href="/logout/">Logout</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <div class="block__three-fourth"> <?php
-        switch ($admin_page) {
-            case 'page':
-                Template::load('admin/page.php');
-                break;
-            case 'post':
-                Template::load('admin/post.php');
-                break; 
-            case 'skill':
-                Template::load('admin/skill.php');
-                break;
-            case 'media':
-                Template::load('admin/media.php');
-                break;   
-            case 'post':
-                Template::load('admin/user.php');
-                break;     
-            default:
-                Template::load('admin/dashboard.php');
-                break;
-        } ?>
-    </div>
+Template::load('admin/head.php', $data); 
+
+Template::load('admin/sidebars.php', $data); ?>
+
+<div id="admin-body"> <?php
+    switch ($type) {
+        case 'dashboard':
+            Template::load('admin/dashboard.php');
+            break;
+        case 'media':
+            Template::load('admin/media.php');
+            break;   
+        case 'user':
+            Template::load('admin/user.php');
+            break;     
+        default:
+            $controller->method($_SERVER['REQUEST_METHOD'])->type($type)->action($action)->get($id);
+            break;
+    } ?>
 </div>
 
 <?php Template::load('admin/footer.php'); ?>

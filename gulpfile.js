@@ -31,6 +31,7 @@ gulp.task('sass:watch', function () {
     });
     gulp.watch('./eks/sass/**/*.scss', ['sass', 'admin_sass']);
     gulp.watch([
-        './**/*.php'
+        './**/*.php',
+        './public/js/**/*.js'
     ]).on('change', browserSync.reload);
 });

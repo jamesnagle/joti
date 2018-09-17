@@ -1,0 +1,14 @@
+.admin-btn {
+    display: block;
+    background: $button_green;
+    border: 0;
+    width: 100%;
+    font-size: 0.8em;
+    padding: 1em;
+    margin: 0;
+    color: $white;
+    text-decoration: none;
+    &:hover {
+        background: $button_hover_green;
+    }
+}

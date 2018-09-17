@@ -1,0 +1,20 @@
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%
+}
+
+.menu {
+    &__base {
+        width: 75px;
+        background: $blue;
+    }
+    &__controls {
+        width: 250px;
+        background: $gray;
+    }
+}
+#admin-body {
+    width: 100%;
+    padding: 2em;
+}

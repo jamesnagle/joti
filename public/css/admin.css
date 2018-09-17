@@ -8,6 +8,10 @@ html,
 body {
   margin: 0; }
 
+html,
+body {
+  height: 100%; }
+
 .container {
   max-width: 1200px;
   width: 100%;
@@ -113,10 +117,117 @@ html body .flex {
     flex: 0 0 75%;
     max-width: 75%; } }
 
-@font-face {
-  font-family: 'OpenSansEmoji';
-  src: url("/fonts/opensansemoji-webfont.woff2") format("woff2"), url("/fonts/opensansemoji-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%; }
+
+.menu__base {
+  width: 75px;
+  background: #1c72b8; }
+
+.menu__controls {
+  width: 250px;
+  background: #eeeeee; }
+
+#admin-body {
+  width: 100%;
+  padding: 2em; }
+
+body {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: 'Lato', sans-serif;
+  color: #333333; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em 0;
+  line-height: 1em; }
+
+h1 {
+  font-size: 3.5em; }
+
+h2 {
+  font-size: 3em; }
+
+h3 {
+  font-size: 2.5em; }
+
+h4 {
+  font-size: 2em; }
+
+h5 {
+  font-size: 1.5em; }
+
+h6 {
+  font-size: 1em; }
+
+p {
+  margin: 0 0 1em 0; }
+
+ul,
+ol {
+  padding-left: 18px;
+  margin-top: 0; }
+  ul li,
+  ol li {
+    line-height: 1.5em; }
+
+.menu__base {
+  padding: 0 1em; }
+  .menu__base--list {
+    list-style-type: none;
+    padding: 0;
+    margin: 1em 0; }
+  .menu__base--item {
+    line-height: 3em; }
+    .menu__base--item a {
+      display: block;
+      color: #ffffff;
+      font-size: 2em;
+      text-align: center; }
+    .menu__base--item:last-child {
+      margin-top: 2em; }
+
+.menu__controls {
+  padding: 1em; }
+
+.admin-btn {
+  display: block;
+  background: #6bd06b;
+  border: 0;
+  width: 100%;
+  font-size: 0.8em;
+  padding: 1em;
+  margin: 0;
+  color: #ffffff;
+  text-decoration: none; }
+  .admin-btn:hover {
+    background: #65b965; }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse; }
+  .admin-table thead th:nth-child(1) {
+    width: 47px; }
+  .admin-table thead th:nth-child(5) {
+    width: 120px; }
+  .admin-table tbody tr:nth-child(odd) {
+    background-color: #eeeeee; }
+  .admin-table tbody tr.lesson-row {
+    display: none;
+    background-color: #f7f7f7; }
+  .admin-table tbody td {
+    margin: 0;
+    padding: 1em; }
+    .admin-table tbody td:nth-child(5) {
+      text-align: center; }
+  .admin-table .expander {
+    cursor: pointer; }
 
 /*# sourceMappingURL=admin.css.map */

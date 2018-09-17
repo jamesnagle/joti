@@ -1,0 +1,25 @@
+.menu {
+    &__base {
+        padding: 0 1em;
+        &--list {
+            list-style-type: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+        &--item {
+           line-height: 3em;
+           a {
+               display: block;
+               color: $white;
+               font-size: 2em;
+               text-align: center;
+           } 
+           &:last-child {
+               margin-top: 2em;
+           }
+        }
+    }
+    &__controls {
+        padding: 1em;
+    }
+}

@@ -15,3 +15,4 @@ use Eks\Template; ?>
     <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body <?php body_class($request) ?>>
+    <div id="wrapper">

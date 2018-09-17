@@ -40,4 +40,13 @@ class Document extends Model {
         }
         return $this->slug;
     }
+    public function type() {
+        if ($this->category_id === 4) {
+            return 'skill';
+        }
+        if ($this->category_id === 5) {
+            return 'lesson';
+        }
+        return $this->type;
+    }
 }
