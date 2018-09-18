@@ -52,7 +52,7 @@ class AdminController
         ]);
     }
     protected function getSingle() {
-        $doc = Document::find($this->id)->get();
+        $doc = Document::with('seoMeta')->findOrFail($this->id);
 
         Template::load('admin/' . $this->action . '.php', [
             'title' => $this->title(),

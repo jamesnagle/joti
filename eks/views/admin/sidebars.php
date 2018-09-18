@@ -3,18 +3,35 @@ use Eks\Template;
 
 Template::load('admin/partials/main-menu.php');
 
-$admin_page = (array_key_exists('type', $_GET)) ? $_GET['type'] : 'dashboard';?>
+$type = (array_key_exists('type', $_GET)) ? $_GET['type'] : 'dashboard';
+$action = (array_key_exists('action', $_GET)) ? $_GET['action'] : 'dashboard';
+$title = ucwords($type);
+$payload = compact('type', 'action', 'title'); ?>
 
 <div class="menu__controls"> <?php
-    switch ($admin_page) {
+    switch ($type) {
+        case 'page':
+            Template::load('admin/partials/controls-generic.php', $payload);
+            break;
+        case 'post':
+            Template::load('admin/partials/controls-generic.php', $payload);
+            break;            
         case 'skill':
             Template::load('admin/partials/controls-skills.php');
             break;
         default:
-        $title = ucwords($admin_page); ?>
-        <p>
-            <a href="/admin/?type=<?= $admin_page ?>&action=new" class="admin-btn" title="Create a new <?= $title ?>"><i class="far fa-plus-square"></i> New <?= $title ?></a>
-        </p> <?php
             break;
+    }
+    if ($action === 'new' || $action === 'edit') { ?>
+        <hr />
+        <p>
+            <a href="#editor" class="btn-admin menu-btn active"><i class="far fa-edit"></i> Editor</a>
+        </p>
+        <p>
+            <a href="#seo" class="btn-admin menu-btn"><i class="fab fa-google"></i> SEO</a>
+        </p>
+        <p>
+            <a href="#revisions" class="btn-admin menu-btn"><i class="fas fa-code-branch"></i> Revisions</a>
+        </p> <?php
     } ?>
 </div>

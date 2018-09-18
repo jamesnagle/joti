@@ -159,3 +159,8 @@ $app->get('/{slug}/', function (Request $request, Response $response, array $arg
 
     handle_response($this, $doc, $response, 'page.php');
 });
+
+$app->post('/api/document/update', function (Request $request, Response $response, array $args) 
+{
+    return $response->withJson(['response' => 'ok']);
+});

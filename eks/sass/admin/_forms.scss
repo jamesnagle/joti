@@ -1,14 +1,50 @@
-.admin-btn {
-    display: block;
-    background: $button_green;
-    border: 0;
-    width: 100%;
-    font-size: 0.8em;
-    padding: 1em;
-    margin: 0;
-    color: $white;
-    text-decoration: none;
-    &:hover {
-        background: $button_hover_green;
+.btn {
+    &-admin {
+        display: block;
+        background: $button_green;
+        border: 0;
+        width: 100%;
+        font-size: 0.8em;
+        padding: 1em;
+        margin: 0;
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            background: $button_hover_green;
+        }
     }
+    &-inline {
+        display: inline;
+    }
+    &-sm {
+        padding: 0.5em;
+    }
+    &-control {
+        background-color: $blue;
+        &:hover {
+            background-color: $button_hover_blue;
+        }
+    } 
+}
+
+.control-container {
+    text-align: right;
+    label {
+        margin-left: 30px;
+        &:nth-child(1) {
+            margin-left: 0;
+        }
+    }
+    select {
+        font-size: 1em;
+        border: 1px solid $heavy_gray;
+    }
+    #control-saving {
+        display: none;
+        color: $heavy_gray;
+    }
+}
+
+input[name="seo_index"] {
+    display: inline;
 }

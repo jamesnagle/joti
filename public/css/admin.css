@@ -150,19 +150,19 @@ h6 {
   line-height: 1em; }
 
 h1 {
-  font-size: 3.5em; }
-
-h2 {
-  font-size: 3em; }
-
-h3 {
   font-size: 2.5em; }
 
-h4 {
+h2 {
   font-size: 2em; }
 
+h3 {
+  font-size: 1.6em; }
+
+h4 {
+  font-size: 1.3em; }
+
 h5 {
-  font-size: 1.5em; }
+  font-size: 1em; }
 
 h6 {
   font-size: 1em; }
@@ -197,7 +197,7 @@ ol {
 .menu__controls {
   padding: 1em; }
 
-.admin-btn {
+.btn-admin {
   display: block;
   background: #6bd06b;
   border: 0;
@@ -207,8 +207,71 @@ ol {
   margin: 0;
   color: #ffffff;
   text-decoration: none; }
-  .admin-btn:hover {
+  .btn-admin:hover {
     background: #65b965; }
+
+.btn-inline {
+  display: inline; }
+
+.btn-sm {
+  padding: 0.5em; }
+
+.btn-control {
+  background-color: #1c72b8; }
+  .btn-control:hover {
+    background-color: #1b639e; }
+
+.control-container {
+  text-align: right; }
+  .control-container label {
+    margin-left: 30px; }
+    .control-container label:nth-child(1) {
+      margin-left: 0; }
+  .control-container select {
+    font-size: 1em;
+    border: 1px solid #cccccc; }
+  .control-container #control-saving {
+    display: none;
+    color: #cccccc; }
+
+input[name="seo_index"] {
+  display: inline; }
+
+#seo,
+#revisions {
+  display: none; }
+
+.menu-btn {
+  background-color: #eeeeee;
+  color: #1c72b8; }
+  .menu-btn:hover {
+    background-color: #e0e0e0; }
+
+.menu-btn.active {
+  background-color: #e0e0e0; }
+
+#editor input[type="text"],
+#editor textarea,
+#seo input[type="text"],
+#seo textarea,
+#revisions input[type="text"],
+#revisions textarea {
+  font-size: 1.5em;
+  width: 100%;
+  line-height: 1.5em;
+  padding: 0 0.25em;
+  border: 1px solid #cccccc; }
+
+#editor {
+  height: calc(100% - 115px); }
+  #editor p {
+    width: 100%;
+    padding: 0 15px; }
+  #editor textarea {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0 15px;
+    height: 100%; }
 
 .admin-table {
   width: 100%;
@@ -229,5 +292,8 @@ ol {
       text-align: center; }
   .admin-table .expander {
     cursor: pointer; }
+
+.title-row .block {
+  margin: 0; }
 
 /*# sourceMappingURL=admin.css.map */

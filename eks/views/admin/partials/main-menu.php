@@ -7,10 +7,10 @@
             <a href="/admin/?type=page" title="Edit Pages"><i class="fas fa-file"></i></a>
         </li>
         <li class="menu__base--item">
-            <a href="/admin/?type=post" title="Edit Posts"><i class="fas fa-file"></i></a>
+            <a href="/admin/?type=post" title="Edit Posts"><i class="far fa-newspaper"></i></a>
         </li>        
         <li class="menu__base--item">
-            <a href="/admin/?type=skill" title="Edit Skills"><i class="fas fa-chalkboard"></i></a>
+            <a href="/admin/?type=skill" title="Edit Skills"><i class="fas fa-graduation-cap"></i></a>
         </li>
         <li class="menu__base--item">
             <a href="/admin/?type=media" title="Upload Media"><i class="fas fa-upload"></i></a>

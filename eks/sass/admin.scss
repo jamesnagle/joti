@@ -1,5 +1,6 @@
 $white: #ffffff;
 $blue: #1c72b8;
+$button_hover_blue: #1b639e;
 $light_blue: #1ea6be;
 $block_bottom_padding: 30px;
 $button_green: #6bd06b;
@@ -7,6 +8,8 @@ $button_hover_green: #65b965;
 $black: #333333;
 $gray: #eeeeee;
 $light_gray: #f7f7f7;
+$dark_gray: #e0e0e0;
+$heavy_gray: #cccccc;
 
 @import 'resets';
 @import 'admin/resets';
@@ -15,6 +18,7 @@ $light_gray: #f7f7f7;
 @import 'admin/typography';
 @import 'admin/menus';
 @import 'admin/forms';
+@import 'admin/editor';
 
 .admin-table {
     width: 100%;
@@ -47,6 +51,12 @@ $light_gray: #f7f7f7;
     }
     .expander {
         cursor: pointer;
+    }
+}
+
+.title-row {
+    .block {
+        margin: 0;
     }
 }
 

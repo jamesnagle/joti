@@ -1,0 +1,40 @@
+#seo,
+#revisions {
+    display: none;
+}
+
+.menu-btn {
+    background-color: $gray;
+    color: $blue;
+    &:hover {
+        background-color: $dark_gray;
+    }
+}
+.menu-btn.active {
+    background-color: $dark_gray;
+}
+#editor,
+#seo,
+#revisions {
+    input[type="text"],
+    textarea {
+        font-size: 1.5em;
+        width: 100%;
+        line-height: 1.5em;
+        padding: 0 0.25em;
+        border: 1px solid $heavy_gray;
+    }
+}
+#editor {
+    height: calc(100% - 115px);
+    p {
+        width: 100%;
+        padding: 0 15px;
+    }
+    textarea {
+        font-size: 1em;
+        line-height: 1.5em;
+        margin: 0 15px;
+        height: 100%;
+    }
+}
