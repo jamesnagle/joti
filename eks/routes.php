@@ -2,8 +2,10 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Eks\Models\Document;
+use Eks\Models\Revision;
 use Eks\EksAuth;
 use Eks\Controllers\LoginController;
+use Diff\Differ\ListDiffer;
 
 $app->get('/', function (Request $request, Response $response, array $args) 
 {
@@ -160,7 +162,78 @@ $app->get('/{slug}/', function (Request $request, Response $response, array $arg
     handle_response($this, $doc, $response, 'page.php');
 });
 
+$app->post('/api/document/draft', function (Request $request, Response $response, array $args) 
+{
+    $this->get('db');
+
+    $post_array = $request->getParsedBody();
+
+    $doc = Document::with('draft')->findOrFail($post_array['document_id']);
+
+    $draft = $doc->draft();
+
+
+    if ($draft->get()->first()) {
+        $fill_array = [];
+        $fill_array[$post_array['type']] = $post_array['data'];
+        
+        $draft->update($fill_array);
+    } else {
+        $slug = array_filter(explode('/', $doc->slug));
+        $data = [
+            'slug' => '/' . implode('', $slug) . '-draft/',
+            'type' => 'draft',
+            'status' => 'private',
+            'category_id' => $doc->category_id
+        ];
+        if ($post_array['type'] === 'title') {
+            $data['title'] = $post_array['data'];
+            $data['body'] = $doc->body;
+        }
+        if ($post_array['type'] === 'body') {
+            $data['title'] = $doc->title;
+            $data['body'] = $post_array['data'];
+        }
+        $draft->create($data);
+    }
+
+    return $response->withJson(['response' => 'ok']);
+});
 $app->post('/api/document/update', function (Request $request, Response $response, array $args) 
 {
+    $this->get('db');
+
+    $post_array = $request->getParsedBody();
+
+    extract($post_array);
+
+    $doc = Document::with('draft')->findOrFail($document_id);
+    $meta = $doc->seoMeta();
+
+    $differ = new ListDiffer();
+    $diff = $differ->doDiff([
+        'body' => $doc->body
+    ], [
+        'body' => $body
+    ]);
+
+    Revision::create([
+        'document_id'   => intval($document_id),
+        'body'          => serialize($diff)
+    ]);
+
+    $doc->update([
+        'title'     => $title,
+        'body'      => $body,
+        'status'    => $status,
+    ]);
+
+    $meta->update([
+        'title'         => $seo_title,
+        'description'   => $seo_description,
+        'index'         => intval($index),
+        'nofollow'      => intval($nofollow)
+    ]);
+
     return $response->withJson(['response' => 'ok']);
 });

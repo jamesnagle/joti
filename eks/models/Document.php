@@ -27,6 +27,13 @@ class Document extends Model {
     {
         return $this->belongsToMany('Eks\Models\Document', 'skills_lessons', 'skill_id', 'lesson_id');
     }
+    public function draft()
+    {
+        return $this->belongsToMany('Eks\Models\Document', 'document_drafts', 'document_id', 'draft_id');
+    }
+    public function revisions() {
+        return $this->belongsToMany('Eks\Models\Revision');
+    }
     public function uri($opt = null) {
         if ($opt === 'edit') {
             return $this->uriEdit();
@@ -60,5 +67,13 @@ class Document extends Model {
     }
     protected function uriDestroy() {
         return '/admin/?type=' . $this->type() . '$action=destroy&id=' . $this->id;
+    }
+    public function value($prop) {
+        $draft = $this->draft()->first();
+        if ($draft) {
+            return $draft->$prop;
+        } else {
+            return $this->$prop;
+        }
     }
 }

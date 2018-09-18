@@ -6,6 +6,7 @@ use Eks\Template; ?>
     </div>
     <div class="block block__half--xs">
         <div class="control-container">
+            <input type="hidden" name="doc_id" value="<?= $doc->id ?>" />
             <label for="control-saving" id="control-saving">saving...</label>
             <label for="control-status">Status:&nbsp;</label>
             <select name="status" id="control-status">
