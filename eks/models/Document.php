@@ -32,7 +32,7 @@ class Document extends Model {
         return $this->belongsToMany('Eks\Models\Document', 'document_drafts', 'document_id', 'draft_id');
     }
     public function revisions() {
-        return $this->belongsToMany('Eks\Models\Revision');
+        return $this->hasMany('Eks\Models\Revision');
     }
     public function uri($opt = null) {
         if ($opt === 'edit') {

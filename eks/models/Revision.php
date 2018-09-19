@@ -12,6 +12,6 @@ class Revision extends Model
     ];
     public function document()
     {
-        return $this->hasOne('Eks\Models\Document');
+        return $this->belongsTo('Eks\Models\Document');
     }
 }

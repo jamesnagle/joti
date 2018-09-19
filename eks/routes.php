@@ -5,7 +5,7 @@ use Eks\Models\Document;
 use Eks\Models\Revision;
 use Eks\EksAuth;
 use Eks\Controllers\LoginController;
-use Diff\Differ\ListDiffer;
+use SebastianBergmann\Diff\Differ;
 
 $app->get('/', function (Request $request, Response $response, array $args) 
 {
@@ -210,16 +210,12 @@ $app->post('/api/document/update', function (Request $request, Response $respons
     $doc = Document::with('draft')->findOrFail($document_id);
     $meta = $doc->seoMeta();
 
-    $differ = new ListDiffer();
-    $diff = $differ->doDiff([
-        'body' => $doc->body
-    ], [
-        'body' => $body
-    ]);
+    $differ = new Differ();
+    $diff = $differ->diff($doc->body, $body);
 
     Revision::create([
         'document_id'   => intval($document_id),
-        'body'          => serialize($diff)
+        'body'          => $diff
     ]);
 
     $doc->update([

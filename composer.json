@@ -6,6 +6,6 @@
         "slim/php-view": "^2.2",
         "illuminate/database": "~5.1",
         "erusev/parsedown": "^1.7",
-        "diff/diff": "^3.2"
+        "sebastian/diff": "^3.0"
     }
 }

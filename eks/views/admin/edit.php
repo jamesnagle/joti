@@ -22,4 +22,4 @@ use Eks\Template; ?>
 
 <?php Template::load('admin/partials/seo.php', compact('doc')) ?>
 
-<?php Template::load('admin/partials/revisions.php') ?>
+<?php Template::load('admin/partials/revisions.php', compact('doc')) ?>
