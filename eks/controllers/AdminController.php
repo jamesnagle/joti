@@ -9,7 +9,7 @@ class AdminController
     protected $method;
     protected $type;
     protected $action;
-    protected $category = 1;
+    protected $category = null;
     protected $docs;
     protected $id;
 
@@ -28,12 +28,13 @@ class AdminController
     public function get($id = null) {
         $this->id = $id;
 
-        if ($this->isSkill()) {
-            $this->category = 4;
-        }
-        if ($this->isLesson()) {
-            $this->category = 5;
-        }
+        $this->applyCategory();
+
+        if ($this->isNew() 
+            && $this->id === null) {
+            $this->newSingle();
+            return;
+        }      
         if ($this->isEdit()) {
             $this->getSingle();
         } else {
@@ -59,6 +60,20 @@ class AdminController
             'doc'   => $doc
         ]);         
     }
+    protected function newSingle() {
+        $db_type = ($this->isSkill() || $this->isLesson()) ? 'post' : $this->type;
+        
+        $doc = Document::create([
+            'type'          => $db_type,
+            'status'        => 'private',
+            'category_id'   => $this->category
+        ]);
+
+        Template::load('admin/' . $this->action . '.php', [
+            'title' => $this->title(),
+            'doc'   => $doc
+        ]);         
+    }    
     protected function fetchPages() {
         $docs = Document::where('type', 'page')->get();
 
@@ -91,6 +106,17 @@ class AdminController
         }
         return $title;
     }
+    protected function applyCategory() {
+        if ($this->isPost()) {
+            $this->category = 1;
+        }
+        if ($this->isSkill()) {
+            $this->category = 4;
+        }
+        if ($this->isLesson()) {
+            $this->category = 5;
+        }
+    }
     protected function isEdit() {
         if ($this->action === 'edit') {
             return true;
@@ -98,6 +124,13 @@ class AdminController
             return false;
         }
     }
+    protected function isNew() {
+        if ($this->action === 'new') {
+            return true;
+        } else {
+            return false;
+        }
+    }    
     protected function isSkill() {
         if ($this->type === 'skill') {
             return true;
@@ -118,6 +151,13 @@ class AdminController
         } else {
             return false;
         }
-    }    
+    } 
+     protected function isPost() {
+        if ($this->type === 'post') {
+            return true;
+        } else {
+            return false;
+        }
+    }       
 
 }

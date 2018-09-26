@@ -2,6 +2,7 @@
 namespace Eks\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Eks\Diff;
 
 class Revision extends Model
 {
@@ -13,5 +14,11 @@ class Revision extends Model
     public function document()
     {
         return $this->belongsTo('Eks\Models\Document');
+    }
+    public function toArray() {
+        return unserialize($this->body);
+    }
+    public function toHTML() {
+        return Diff::toTable($this->toArray());
     }
 }

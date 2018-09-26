@@ -233,6 +233,10 @@ ol {
   .control-container #control-saving {
     display: none;
     color: #cccccc; }
+  .control-container #control-slug {
+    border: 0; }
+    .control-container #control-slug:focus {
+      border: 1px solid #cccccc; }
 
 input[name="seo_index"] {
   display: inline; }
@@ -272,6 +276,12 @@ input[name="seo_index"] {
     line-height: 1.5em;
     margin: 0 15px;
     height: 100%; }
+
+table.diff {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #cccccc;
+  border-radius: 5px; }
 
 .admin-table {
   width: 100%;

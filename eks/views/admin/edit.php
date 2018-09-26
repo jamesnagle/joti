@@ -8,6 +8,8 @@ use Eks\Template; ?>
         <div class="control-container">
             <input type="hidden" name="doc_id" value="<?= $doc->id ?>" />
             <label for="control-saving" id="control-saving">saving...</label>
+            <label for="control-slug">Slug:&nbsp;</label>
+            <input type="text" id="control-slug" value="<?= $doc->slug ?>" <?= (!$doc->slug) ? 'placeholder="/slug/"' : '' ?> />
             <label for="control-status">Status:&nbsp;</label>
             <select name="status" id="control-status">
                 <option value="private" <?= ($doc->status === 'private') ? 'selected' : '' ?>>Private</option>

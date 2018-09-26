@@ -43,6 +43,12 @@
         display: none;
         color: $heavy_gray;
     }
+    #control-slug {
+        border: 0;
+        &:focus {
+            border: 1px solid $heavy_gray;
+        }
+    }
 }
 
 input[name="seo_index"] {
