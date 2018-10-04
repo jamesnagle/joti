@@ -30,7 +30,8 @@ $container['db'] = function ($container) {
 
 $container['view'] = function ($container) {
     $templateVariables = [
-        'request' => $container->get('request')
+        'request'   => $container->get('request'),
+        'response'  => $container->get('response')
     ];
     return new \Slim\Views\PhpRenderer(EKS_DIRECTORY . 'views/', $templateVariables);
 };

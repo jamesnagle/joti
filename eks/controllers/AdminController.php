@@ -6,12 +6,17 @@ use Eks\Models\Document;
 
 class AdminController 
 {
+    protected $response;
     protected $method;
     protected $type;
     protected $action;
     protected $category = null;
     protected $docs;
     protected $id;
+
+    function __construct($response) {
+        $this->response = $response;
+    }
 
     public function method($method) {
         $this->method = $method;
@@ -30,6 +35,16 @@ class AdminController
 
         $this->applyCategory();
 
+        if ($this->isDestroy() 
+            && $this->id !== null) {
+            $this->delete();
+            return;
+        }
+        if ($this->isTrashed() 
+            && $this->id !== null) {
+            $this->trash();
+            return;
+        }
         if ($this->isNew() 
             && $this->id === null) {
             $this->newSingle();
@@ -86,6 +101,23 @@ class AdminController
         ])->with('lessons')->get();
 
         $this->docs = $docs;
+    }
+    protected function trash() {
+        $doc = Document::find($this->id);
+        $doc->delete();
+
+        return $this->response->withRedirect('/admin/?type=' . $this->type . '&action=show');
+    }
+    protected function delete() {
+       $doc = Document::find($this->id);
+       $draft = $doc->draft();
+       $revisions = $doc->revisions();
+
+       $draft->delete();
+       $revisions->delete();
+       $doc->forceDelete(); 
+
+       return $this->response->withRedirect('/admin/?type=' . $this->type . '&action=show');
     }
     protected function title() {
 
@@ -152,12 +184,25 @@ class AdminController
             return false;
         }
     } 
-     protected function isPost() {
+    protected function isPost() {
         if ($this->type === 'post') {
             return true;
         } else {
             return false;
         }
     }       
-
+    protected function isTrashed() {
+        if ($this->action === 'trash') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    protected function isDestroy() {
+        if ($this->action === 'destroy') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

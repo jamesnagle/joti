@@ -7,7 +7,7 @@ foreach ($collection as $doc) { ?>
         <td><?= $doc->title ?></td>
         <td><?= $doc->uri() ?></td>
         <td><?= $doc->status ?></td>
-        <td><a href="<?= $doc->uri('edit') ?>" title="Edit Page">Edit</a> | <a href="<?= $doc->uri('destroy') ?>" title="Delete Page">Delete</a></td>
+        <td><a href="<?= $doc->uri('edit') ?>" title="Edit Page">Edit</a> | <a href="<?= $doc->uri('trash') ?>" title="Trash Page">Trash</a></td>
     </tr> <?php
     Template::load('admin/partials/show-lesson-rows.php', [
         'parent_id'     => $doc->id,

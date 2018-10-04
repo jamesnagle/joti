@@ -9,7 +9,7 @@ $type = (array_key_exists('type', $_GET)) ? $_GET['type'] : 'dashboard';
 $action = (array_key_exists('action', $_GET)) ? $_GET['action'] : 'show';
 $id = (array_key_exists('id', $_GET)) ? $_GET['id'] : null;
 
-$controller = new AdminController();
+$controller = new AdminController($response);
 
 Template::load('admin/head.php', $data); 
 

@@ -2,8 +2,11 @@
 namespace Eks\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Document extends Model {
+    use SoftDeletes;
+
     protected $table = 'documents';
     protected $fillable = [
         'title',
@@ -13,6 +16,8 @@ class Document extends Model {
         'status',
         'category_id'
     ];
+    protected $dates = ['deleted_at'];
+    
     public function seoMeta() {
         return $this->hasOne('Eks\Models\SeoMeta');
     }
@@ -38,6 +43,9 @@ class Document extends Model {
         if ($opt === 'edit') {
             return $this->uriEdit();
         }
+        if ($opt === 'trash') {
+            return $this->uriTrash();
+        }        
         if ($opt === 'destroy') {
             return $this->uriDestroy();
         }
@@ -68,6 +76,9 @@ class Document extends Model {
     protected function uriDestroy() {
         return '/admin/?type=' . $this->type() . '$action=destroy&id=' . $this->id;
     }
+    protected function uriTrash() {
+        return '/admin/?type=' . $this->type() . '$action=trash&id=' . $this->id;
+    }    
     public function value($prop) {
         $draft = $this->draft()->first();
         if ($draft) {
