@@ -7,6 +7,7 @@ use Eks\Template; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title><?= $doc->seoMeta->title ?></title>
     <meta name="description" content="<?= $doc->seoMeta->description ?>">
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
@@ -14,8 +15,11 @@ use Eks\Template; ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body <?php body_class($request) ?>>
-    <div class="container"> <?php 
+<body <?php body_class($request) ?>> <?php 
         if ($request->getUri()->getPath() !== '/login/') {
-            Template::load('partials/header.php');
+            if ($request->getUri()->getPath() === '/about/') {
+                Template::load('partials/about-header.php');
+            } else {
+                Template::load('partials/header.php');  
+            } 
         } ?>

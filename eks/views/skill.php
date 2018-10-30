@@ -5,4 +5,4 @@ Template::load('head.php', $data);
 
 Template::load('partials/skill-roll.php', $data);
 
-Template::load('footer.php'); ?>
+Template::load('footer.php', $data); ?>

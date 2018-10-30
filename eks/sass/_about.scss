@@ -1,0 +1,17 @@
+body.about,
+body.login {
+    color: $white;
+    background: linear-gradient(#1ea6be, #1c72b8) fixed;
+    a {
+        color: $white;
+    }    
+    .btn {
+        background-color: $white;
+        border: 2px solid $white;
+        color: $blue;
+        &:hover {
+            color: $white;
+            background: transparent;
+        }
+    } 
+}

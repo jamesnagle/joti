@@ -1,0 +1,12 @@
+.login {
+    .h1 {
+        &__title {
+            margin-top: 2.7em;
+        }        
+    }
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;    
+    }    
+}

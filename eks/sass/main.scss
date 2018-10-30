@@ -12,20 +12,15 @@ $button_green: #6bd06b;
 @import 'components/components';
 @import 'header';
 @import 'forms';
+@import 'about-header';
+@import 'about';
+@import 'login';
 
-
-body {
-    color: $white;
-    background: linear-gradient(#1ea6be, #1c72b8) fixed;
-}
 a {
-    color: $white;
+    color: $blue;
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 1);
-    &:hover {
-        animation: disolve_decoration 1s linear forwards;
-    }
-} 
+}
+
 .center {
     text-align: center;
 }
@@ -33,24 +28,30 @@ a {
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: $white;
-    border: 2px solid $white;
+    background-color: $blue;
+    border: 2px solid $blue;
     border-radius: 5px;
-    color: $blue;
+    color: $white;
+    &__back-home {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 0;
+        width: 44px;
+        text-align: center;
+    }
 }
 .btn:hover {
     animation: none;
     background-color: transparent;
-    color: $white;
+    color: $blue;
 }
 
-#skills-expertise {
-    h2 {
-        animation: swell 5s infinite;
-    }
+code.inline {
+    border: 1px solid $white;
+    border-radius: 3px;
+    padding: 0 5px;
+    margin: 0 3px 0 0;    
 }
-
-.mustache {
-    transform: rotate(83deg);
-}
-

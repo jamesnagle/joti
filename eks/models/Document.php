@@ -49,6 +49,9 @@ class Document extends Model {
         if ($opt === 'destroy') {
             return $this->uriDestroy();
         }
+        if ($opt === 'preview') {
+            return $this->uriPreview();
+        }
         if (!$this->category_id)
         {
             return $this->slug;
@@ -69,6 +72,9 @@ class Document extends Model {
             return 'lesson';
         }
         return $this->type;
+    }
+    protected function uriPreview() {
+        return $this->uri() . '?isPreview=true&previewId=' . $this->id;
     }
     protected function uriEdit() {
         return '/admin/?type=' . $this->type() . '&action=edit&id=' . $this->id . '#editor';

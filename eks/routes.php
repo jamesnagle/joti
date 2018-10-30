@@ -94,6 +94,14 @@ $app->get('/blog/{slug}/', function (Request $request, Response $response, array
     handle_response($this, $doc, $response, 'post.php');
 });
 
+$app->get('/about/', function (Request $request, Response $response, array $args) 
+{
+    $this->get('db');
+    $doc = Document::where('slug', '/about/')->with('seoMeta')->first();
+
+    handle_response($this, $doc, $response, 'about.php');
+});
+
 $app->get('/login/', function (Request $request, Response $response, array $args) {
 
     session_start();
@@ -235,4 +243,8 @@ $app->post('/api/document/update', function (Request $request, Response $respons
     ]);
 
     return $response->withJson(['response' => 'ok']);
+});
+
+$app->get('/api/document/poll', function (Request $request, Response $response, array $args) 
+{
 });

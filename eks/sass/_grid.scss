@@ -68,8 +68,10 @@ html {
             }
         }
         &__three-fourth {
-            flex: 0 0 75%;
-            max-width: 75%;
+            &--xs {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
         }  
     }
     .hidden-xs {
@@ -100,8 +102,10 @@ html {
             }
         }
         &__three-fourth {
-            flex: 0 0 75%;
-            max-width: 75%;
+            &--sm {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
         }          
     }
     .hidden-sm {
@@ -132,8 +136,10 @@ html {
             }
         }
         &__three-fourth {
-            flex: 0 0 75%;
-            max-width: 75%;
+            &--md {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
         }          
     }
 }
@@ -158,8 +164,10 @@ html {
             }
         }
         &__three-fourth {
-            flex: 0 0 75%;
-            max-width: 75%;
+            &--lg {
+                flex: 0 0 75%;
+                max-width: 75%;
+            }
         }          
     }
 }

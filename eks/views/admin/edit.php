@@ -17,6 +17,7 @@ use Eks\Template; ?>
             </select>
             <label for="control-commit">Commit:&nbsp;</label>
             <a id="control-commit" class="btn-admin btn-sm btn-inline btn-control"><i class="far fa-check-circle"></i></a>
+            <a href="<?= $doc->uri('preview') ?>" class="btn-admin btn-sm btn-inline btn-control" title="Open Live Preview" target="_blank"><i class="far fa-eye"></i></a>
         </div>
     </div>    
 </div>

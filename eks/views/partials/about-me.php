@@ -1,3 +1,5 @@
+<a href="/" title="Back to Hompage" class="btn btn__back-home"><i class="fas fa-arrow-left"></i></a>
+
 <div class="row">
     <div class="block">
         <h2>A Little About Me</h2>

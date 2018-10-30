@@ -11,4 +11,4 @@ Template::load('head.php', $data); ?>
     </div>
 </div>
 
-<?php Template::load('footer.php'); ?>
+<?php Template::load('footer.php', $data); ?>
